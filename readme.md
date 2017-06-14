@@ -34,6 +34,8 @@ If you wish to change the number of pages, you need to send a `MAX_PAGES_CHANGED
 this.sendNotification("MAX_PAGES_CHANGED", 4);
 ```
 
+You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads (or with, but it will be ignored) to have the module change the displayed page by one.
+
 This would now show that there are now 4 pages to display.
 
 ## Using the module
