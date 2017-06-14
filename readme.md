@@ -3,7 +3,7 @@
 
 ![Example of MMM-page-indicator](./example_picture.png)
 
-This [MagicMirror²][mm] Module is designed indicate what "page" you are looking at. This module is designed to be an indicator only. It does not, by itself, provide any page switching features.
+This [MagicMirror²][mm] Module is designed indicate what "page" you are looking at. This module is designed to be an indicator only. It does not, by itself, provide any page switching features. 
 
 ## Installation
 
@@ -54,9 +54,24 @@ modules: [
 ## Configuration options
 
 Option|Description
+------|-----------
 `pages`|Number of pages that you have.<br/>**Expected Value type:** `int`.
 `activeBright`|Should the active circle be bright.<br/>**Expected Value type:** `boolean`.
 `inactiveDimmed`|Should the inactive circles be dimmed?<br/>**Expected Value type:** `boolean`.
 `inactiveHollow`|Should the inactive circles be hollow?<br/>**Expected Value type:** `boolean`.
+
+## FAQ
+
+- Help! My module is (above/below) another module in the same region but I want it to be somewhere else!
+
+  The order of your `config.js` determines your module location. If you have two modules, both with `position:bottom_bar`, the one that is first listed will appear on top. The rest will appear in the same order you defined them in. If you want this module to be at the very bottom, define this module as the last module in your `config.js` file. If you want it to be on top in that region, make sure no other module is defined before it that has the same region.
+  
+- Can I make a pull request?
+
+  Please do! I'd love for this to be integrated in many modules!
+  
+- I want more config options!
+
+  Please make an issue. Thanks!
 
 [mm]: https://github.com/MichMich/MagicMirror
