@@ -1,0 +1,9 @@
+.MMM-page-indicator {
+    margin-top: 0 !important;
+}
+
+.MMM-page-indicator .indicator {
+    padding: 0 5px;
+    margin: 0;
+    font-size: 0.5em;
+ }
