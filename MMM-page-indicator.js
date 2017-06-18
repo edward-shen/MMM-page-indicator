@@ -40,6 +40,14 @@ Module.register("MMM-page-indicator", {
                 }
             }
             wrapper.appendChild(circle);
+            
+            let self = this;
+            
+            circle.onclick = function() {
+                self.sendNotification("PAGE_CHANGED", i);
+                self.curPage = i;
+                self.updateDom();
+            };
         }
         
         return wrapper;
