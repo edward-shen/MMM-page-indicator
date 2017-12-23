@@ -4,55 +4,63 @@ Module.register("MMM-page-indicator", {
         activeBright: false,
         inactiveDimmed: true,
         inactiveHollow: true,
-        
+        pageIcons: [],
+        icon: ' fa-circle',
+        hollowIcon: " fa-circle-thin",
+        iconSize: ''
     },
-    
+
     getStyles: function() {
-        return ["font-awesome.css", "page-indicators.css"];
+        return ["font-awesome.css", "page-indicators.css", "custom.css"];
     },
-    
+
     start: function() {
         this.curPage = 0;
     },
-    
+
     getDom: function() {
         var wrapper = document.createElement("div");
-        
+
         for (let i = 0; i < this.config.pages; i++) {
-            let circle = document.createElement("i");
-            
+            let icon = document.createElement("i");
+
+            icon.className = this.config.iconSize + ' indicator fa ';
+
+            icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : "";
+
             if (this.curPage === i) {
-                circle.className = "fa fa-circle indicator";
+                icon.className += !this.config.pageIcons[i] ? this.config.icon : '';
                 if (this.config.activeBright) {
-                    circle.className += " bright";
+                    icon.className += " bright";
                 }
             } else {
-                circle.className = "fa indicator";
-                
-                if (this.config.inactiveDimmed) {
-                    circle.className += " dimmed";
+              if (this.config.inactiveDimmed) {
+                    icon.className += " dimmed";
                 }
-                
-                if (this.config.inactiveHollow) {
-                    circle.className += " fa-circle-thin";
-                } else {
-                    circle.className += " fa-circle";
+
+                if (!this.config.pageIcons.length) {
+                  if (this.config.inactiveHollow) {
+                    icon.className += this.config.hollowIcon;
+                  } else {
+                      icon.className += this.config.icon;
+                  }
                 }
             }
-            wrapper.appendChild(circle);
-            
+
+            wrapper.appendChild(icon);
+
             let self = this;
-            
-            circle.onclick = function() {
+
+            icon.onclick = function() {
                 self.sendNotification("PAGE_CHANGED", i);
                 self.curPage = i;
                 self.updateDom();
             };
         }
-        
+
         return wrapper;
     },
-    
+
     notificationReceived: function(notification, payload, sender) {
         if (notification === "PAGE_CHANGED") {
             Log.log(this.name + " recieved a notification to change to page " + payload);
@@ -79,5 +87,5 @@ Module.register("MMM-page-indicator", {
             this.updateDom();
         }
     },
-    
+
 });
