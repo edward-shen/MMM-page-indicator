@@ -38,7 +38,7 @@ Module.register("MMM-page-indicator", {
                     icon.className += " dimmed";
                 }
 
-                if (!this.config.pageIcons.length) {
+                if (!this.config.pageIcons[i]) {
                   if (this.config.inactiveHollow) {
                     icon.className += this.config.hollowIcon;
                   } else {
