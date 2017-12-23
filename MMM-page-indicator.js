@@ -9,13 +9,17 @@ Module.register('MMM-page-indicator', {
     activeBright: false,
     inactiveDimmed: true,
     inactiveHollow: true,
+    pageIcons: [],
+    icon: ' fa-circle',
+    hollowIcon: " fa-circle-thin",
+    iconSize: ''
   },
 
   /**
    * Apply any styles, if we have any.
    */
   getStyles() {
-    return ['font-awesome.css', 'page-indicators.css'];
+    return ['font-awesome.css', 'page-indicators.css', 'custom.css'];
   },
 
   /**
@@ -28,31 +32,37 @@ Module.register('MMM-page-indicator', {
   /**
    * Render the cicles for each page, and highlighting the page we're on.
    */
-  getDom() {
+  getDom() {    
     const wrapper = document.createElement('div');
 
     for (let i = 0; i < this.config.pages; i += 1) {
-      const circle = document.createElement('i');
+      const icon = document.createElement('i');
+
+      icon.className = this.config.iconSize + ' indicator fa ';
+
+      icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : '';
 
       if (this.curPage === i) {
-        circle.className = 'fa fa-circle indicator';
+        icon.className += !this.config.pageIcons[i] ? this.config.icon : '';
         if (this.config.activeBright) {
-          circle.className += ' bright';
+          icon.className += ' bright';
         }
       } else {
-        circle.className = 'fa indicator';
 
         if (this.config.inactiveDimmed) {
-          circle.className += ' dimmed';
+          icon.className += ' dimmed';
         }
 
-        if (this.config.inactiveHollow) {
-          circle.className += ' fa-circle-thin';
-        } else {
-          circle.className += ' fa-circle';
-        }
+        if (!this.config.pageIcons.length) {
+            if (this.config.inactiveHollow) {
+              icon.className += this.config.hollowIcon;
+            } else {
+                icon.className += this.config.icon;
+            }
+          }
       }
-      wrapper.appendChild(circle);
+
+      wrapper.appendChild(icon);
 
       const self = this;
 

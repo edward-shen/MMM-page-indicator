@@ -7,3 +7,11 @@
     margin: 0;
     font-size: 0.5em;
  }
+
+.MMM-page-indicator .indicator.large {
+    font-size: 1em;
+}
+
+.MMM-page-indicator .indicator.extra-large {
+    font-size: 1.5em;
+}
