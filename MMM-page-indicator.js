@@ -1,30 +1,33 @@
 Module.register('MMM-page-indicator', {
+
+  /**
+   * By default, we should try to make the configuration match the demo
+   * implementation. This means 3 pages, and some default enabled styles.
+   */
   defaults: {
     pages: 3,
     activeBright: false,
     inactiveDimmed: true,
     inactiveHollow: true,
-
   },
 
+  /**
+   * Apply any styles, if we have any.
+   */
   getStyles() {
     return ['font-awesome.css', 'page-indicators.css'];
   },
 
   /**
-   * Modulo that also works with negative numbers.
-   * @param {number} x The dividend
-   * @param {number} n The divisor
+   * Pseudo-constructor for our module. Sets the default current page to 0.
    */
-  mod(x, n) {
-    return ((x % n) + n) % n;
-  },
-
   start() {
     this.curPage = 0;
   },
 
-
+  /**
+   * Render the cicles for each page, and highlighting the page we're on.
+   */
   getDom() {
     const wrapper = document.createElement('div');
 
@@ -53,6 +56,11 @@ Module.register('MMM-page-indicator', {
 
       const self = this;
 
+      // Lets people change the page by clicking on the respective circle.
+      // So apparently this doesn't work if we don't call the last two methods,
+      // despite those methods being called in when calling sendNotification.
+      // This is likely a bug (because spamming a single button) causes rapid-
+      // fire page changing, but for most cases that shouldn't be a problem.
       circle.onclick = () => {
         self.sendNotification('PAGE_CHANGED', i);
         self.curPage = i;
@@ -63,13 +71,28 @@ Module.register('MMM-page-indicator', {
     return wrapper;
   },
 
+  /**
+   * If we recieve a notification that we can respond to, update which page
+   * we're suppose to show as active.
+   * @param {string} notification The notification ID
+   * @param {number} payload the payload type.
+   */
   notificationReceived(notification, payload) {
+    /**
+     * Modulo that also works with negative numbers.
+     * @param {number} x The dividend
+     * @param {number} n The divisor
+     */
+    const mod = (x, n) => ((x % n) + n) % n;
+
     if (notification === 'PAGE_CHANGED') {
-      Log.log(`${this.name} recieved a notification to change to page ${payload}`);
+      Log.log(`${this.name} recieved a notification to change to
+        page ${payload}`);
       this.curPage = payload;
       this.updateDom();
     } else if (notification === 'MAX_PAGES_CHANGED') {
-      Log.log(`${this.name} received a notification to change the maximum number of pages to ${payload}`);
+      Log.log(`${this.name} received a notification to change the maximum
+        number of pages to ${payload}`);
       this.config.pages = payload;
       if (payload - 1 < this.curPage) {
         this.curPage = payload - 1;
@@ -77,15 +100,11 @@ Module.register('MMM-page-indicator', {
       this.updateDom();
     } else if (notification === 'PAGE_INCREMENT') {
       Log.log(`${this.name} recieved a notification to increment pages!`);
-      if (this.curPage === this.config.pages - 1) {
-        this.curPage = 0;
-      } else { this.curPage += 1; }
+      this.curPage = mod(this.curPage + 1, this.config.pages);
       this.updateDom();
     } else if (notification === 'PAGE_DECREMENT') {
       Log.log(`${this.name} recieved a notification to decrement pages!`);
-      if (this.curPage === 0) {
-        this.curPage = this.config.pages - 1;
-      } else { this.curPage -= 1; }
+      this.curPage = mod(this.curPage - 1, this.config.pages);
       this.updateDom();
     }
   },
