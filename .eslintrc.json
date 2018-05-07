@@ -1,8 +1,14 @@
 {
     "extends": "airbnb-base",
     "globals": {
-        "Log": true,
         "Module": true,
+        "Log": true,
         "MM": true
+    },
+    "rules": {
+        "comma-dangle": "off",
+        "object-shorthand": "off",
+        "func-names": "off",
+        "space-before-function-paren": "off"
     }
 }
