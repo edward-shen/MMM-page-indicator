@@ -48,6 +48,7 @@ modules: [
         position: 'bottom_bar',
         config: {
             pages: 3,
+            pageIcons: [ 'fa-calendar-check-o', 'fa-check-square-o', 'fa-gamepad' ],
         }
     }
 ]
@@ -61,6 +62,8 @@ Option|Description
 `activeBright`|Should the active circle be bright.<br/>**Expected Value type:** `boolean`.
 `inactiveDimmed`|Should the inactive circles be dimmed?<br/>**Expected Value type:** `boolean`.
 `inactiveHollow`|Should the inactive circles be hollow?<br/>**Expected Value type:** `boolean`.
+`iconSize`|Allows the icons size to be adjusted to `large` or `extra-large`<br/>**Expected Value type:** `string`. 
+`pageIcons`|Allows the use of font-awesome icons<br/>**Expected Value type:** `Array`.
 
 ## FAQ
 

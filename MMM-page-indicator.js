@@ -5,8 +5,8 @@ Module.register("MMM-page-indicator", {
         inactiveDimmed: true,
         inactiveHollow: true,
         pageIcons: [],
-        icon: ' fa-circle',
-        hollowIcon: " fa-circle-thin",
+        icon: 'fa-circle',
+        hollowIcon: "fa-circle-thin",
         iconSize: ''
     },
 
@@ -34,11 +34,12 @@ Module.register("MMM-page-indicator", {
                     icon.className += " bright";
                 }
             } else {
-              if (this.config.inactiveDimmed) {
+                if (this.config.inactiveDimmed) {
                     icon.className += " dimmed";
                 }
 
                 if (!this.config.pageIcons.length) {
+                  icon.className += ' ';
                   if (this.config.inactiveHollow) {
                     icon.className += this.config.hollowIcon;
                   } else {
