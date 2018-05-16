@@ -38,12 +38,8 @@ Module.register("MMM-page-indicator", {
                     icon.className += " dimmed";
                 }
 
-<<<<<<< HEAD
-                if (!this.config.pageIcons.length) {
-                  icon.className += ' ';
-=======
                 if (!this.config.pageIcons[i]) {
->>>>>>> 17fa3091cf1d5c909ea05502e23370f41d7cc77a
+                  icon.className += ' ';
                   if (this.config.inactiveHollow) {
                     icon.className += this.config.hollowIcon;
                   } else {
