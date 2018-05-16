@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Module.register('MMM-page-indicator', {
 
   /**
@@ -42,37 +41,6 @@ Module.register('MMM-page-indicator', {
             icon.className = this.config.iconSize + ' indicator fa ';
 
             icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : '';
-=======
-Module.register("MMM-page-indicator", {
-    defaults: {
-        pages: 3,
-        activeBright: false,
-        inactiveDimmed: true,
-        inactiveHollow: true,
-        pageIcons: [],
-        icon: 'fa-circle',
-        hollowIcon: "fa-circle-thin",
-        iconSize: ''
-    },
-
-    getStyles: function() {
-        return ["font-awesome.css", "page-indicators.css", "custom.css"];
-    },
-
-    start: function() {
-        this.curPage = 0;
-    },
-
-    getDom: function() {
-        var wrapper = document.createElement("div");
-
-        for (let i = 0; i < this.config.pages; i++) {
-            let icon = document.createElement("i");
-
-            icon.className = this.config.iconSize + ' indicator fa ';
-
-            icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : "";
->>>>>>> 73d241ffb3e43984c4746eed911918a24f4e9f0b
 
             if (this.curPage === i) {
                 icon.className += !this.config.pageIcons[i] ? this.config.icon : '';
