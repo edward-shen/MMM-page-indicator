@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Module.register('MMM-page-indicator', {
 
   /**
@@ -11,9 +10,9 @@ Module.register('MMM-page-indicator', {
     inactiveDimmed: true,
     inactiveHollow: true,
     pageIcons: [],
-    icon: ' fa-circle',
-    hollowIcon: " fa-circle-thin",
-    iconSize: ''
+    icon: 'fa-circle',
+    hollowIcon: 'fa-circle-thin',
+    iconSize: '',
   },
 
   /**
@@ -29,48 +28,32 @@ Module.register('MMM-page-indicator', {
   start() {
     this.curPage = 0;
   },
-=======
-Module.register("MMM-page-indicator", {
-    defaults: {
-        pages: 3,
-        activeBright: false,
-        inactiveDimmed: true,
-        inactiveHollow: true,
-        pageIcons: [],
-        icon: ' fa-circle',
-        hollowIcon: " fa-circle-thin",
-        iconSize: ''
-    },
 
-    getStyles: function() {
-        return ["font-awesome.css", "page-indicators.css", "custom.css"];
-    },
-
-    start: function() {
-        this.curPage = 0;
-    },
-
+  /**
+   * Render the cicles for each page, and highlighting the page we're on.
+   */
     getDom: function() {
-        var wrapper = document.createElement("div");
+        const wrapper = document.createElement('div');
 
         for (let i = 0; i < this.config.pages; i++) {
-            let icon = document.createElement("i");
+            let icon = document.createElement('i');
 
             icon.className = this.config.iconSize + ' indicator fa ';
 
-            icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : "";
+            icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : '';
 
             if (this.curPage === i) {
                 icon.className += !this.config.pageIcons[i] ? this.config.icon : '';
                 if (this.config.activeBright) {
-                    icon.className += " bright";
+                    icon.className += ' bright';
                 }
             } else {
               if (this.config.inactiveDimmed) {
-                    icon.className += " dimmed";
+                    icon.className += ' dimmed';
                 }
 
                 if (!this.config.pageIcons[i]) {
+                    icon.className += ' '; 
                   if (this.config.inactiveHollow) {
                     icon.className += this.config.hollowIcon;
                   } else {
@@ -78,40 +61,7 @@ Module.register("MMM-page-indicator", {
                   }
                 }
             }
->>>>>>> fix issue with default icon not showing on non-active page
 
-  /**
-   * Render the cicles for each page, and highlighting the page we're on.
-   */
-  getDom() {    
-    const wrapper = document.createElement('div');
-
-    for (let i = 0; i < this.config.pages; i += 1) {
-      const icon = document.createElement('i');
-
-      icon.className = this.config.iconSize + ' indicator fa ';
-
-      icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : '';
-
-      if (this.curPage === i) {
-        icon.className += !this.config.pageIcons[i] ? this.config.icon : '';
-        if (this.config.activeBright) {
-          icon.className += ' bright';
-        }
-      } else {
-
-        if (this.config.inactiveDimmed) {
-          icon.className += ' dimmed';
-        }
-
-        if (!this.config.pageIcons.length) {
-            if (this.config.inactiveHollow) {
-              icon.className += this.config.hollowIcon;
-            } else {
-                icon.className += this.config.icon;
-            }
-          }
-      }
 
       wrapper.appendChild(icon);
 
