@@ -10,8 +10,8 @@ Module.register('MMM-page-indicator', {
     inactiveDimmed: true,
     inactiveHollow: true,
     pageIcons: [],
-    icon: 'fa-circle',
-    hollowIcon: 'fa-circle-thin',
+    icon: ' fa-circle',
+    hollowIcon: " fa-circle-thin",
     iconSize: '',
   },
 
@@ -32,36 +32,34 @@ Module.register('MMM-page-indicator', {
   /**
    * Render the cicles for each page, and highlighting the page we're on.
    */
-    getDom: function() {
-        const wrapper = document.createElement('div');
+  getDom() {
+    const wrapper = document.createElement('div');
 
-        for (let i = 0; i < this.config.pages; i++) {
-            let icon = document.createElement('i');
+    for (let i = 0; i < this.config.pages; i += 1) {
+      const icon = document.createElement('i');
 
-            icon.className = this.config.iconSize + ' indicator fa ';
+      icon.className = this.config.iconSize + ' indicator fa ';
+      icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : "";
 
-            icon.className += this.config.pageIcons[i] ? this.config.pageIcons[i] : '';
-
-            if (this.curPage === i) {
-                icon.className += !this.config.pageIcons[i] ? this.config.icon : '';
-                if (this.config.activeBright) {
-                    icon.className += ' bright';
-                }
-            } else {
-              if (this.config.inactiveDimmed) {
-                    icon.className += ' dimmed';
-                }
-
-                if (!this.config.pageIcons[i]) {
-                    icon.className += ' '; 
-                  if (this.config.inactiveHollow) {
-                    icon.className += this.config.hollowIcon;
-                  } else {
-                      icon.className += this.config.icon;
-                  }
-                }
-            }
-
+      if (this.curPage === i) {
+        icon.className += !this.config.pageIcons[i] ? this.config.icon : '';
+        
+        if (this.config.activeBright) {
+          icon.className += ' bright';
+        }
+      } else {
+        if (this.config.inactiveDimmed) {
+          icon.className += ' dimmed';
+        }
+        if (!this.config.pageIcons[i]) {
+          icon.className += ' ';
+          if (this.config.inactiveHollow) {
+            icon.className += this.config.hollowIcon;
+          } else {
+            icon.className += this.config.icon;
+          }
+        }
+      }
       wrapper.appendChild(icon);
 
       const self = this;
@@ -71,7 +69,7 @@ Module.register('MMM-page-indicator', {
       // despite those methods being called in when calling sendNotification.
       // This is likely a bug (because spamming a single button) causes rapid-
       // fire page changing, but for most cases that shouldn't be a problem.
-      circle.onclick = () => {
+      icon.onclick = () => {
         self.sendNotification('PAGE_CHANGED', i);
         self.curPage = i;
         self.updateDom();
@@ -118,4 +116,5 @@ Module.register('MMM-page-indicator', {
       this.updateDom();
     }
   },
+
 });
