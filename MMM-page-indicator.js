@@ -88,7 +88,7 @@ Module.register('MMM-page-indicator', {
     if (notification === 'PAGE_CHANGED') {
       Log.log(`${this.name} recieved a notification to change to
         page ${payload}`);
-      this.curPage = payload;
+      this.curPage = mod(payload, this.config.pages);
       this.updateDom();
     } else if (notification === 'MAX_PAGES_CHANGED') {
       Log.log(`${this.name} received a notification to change the maximum
