@@ -86,7 +86,7 @@ Module.register('MMM-page-indicator', {
     const mod = (x, n) => ((x % n) + n) % n;
 
     if (notification === 'PAGE_CHANGED') {
-      Log.log(`${this.name} recieved a notification to change to
+      Log.log(`${this.name} received a notification to change to
         page ${payload}`);
       this.curPage = mod(payload, this.config.pages);
       this.updateDom();
@@ -99,12 +99,16 @@ Module.register('MMM-page-indicator', {
       }
       this.updateDom();
     } else if (notification === 'PAGE_INCREMENT') {
-      Log.log(`${this.name} recieved a notification to increment pages!`);
+      Log.log(`${this.name} received a notification to increment pages!`);
       this.curPage = mod(this.curPage + 1, this.config.pages);
       this.updateDom();
     } else if (notification === 'PAGE_DECREMENT') {
-      Log.log(`${this.name} recieved a notification to decrement pages!`);
+      Log.log(`${this.name} received a notification to decrement pages!`);
       this.curPage = mod(this.curPage - 1, this.config.pages);
+      this.updateDom();
+    } else if (notification === 'NEW_PAGE') {
+      Log.log(`${this.name} received a notification to set new page!`);
+      this.curPage = payload;
       this.updateDom();
     }
   },
