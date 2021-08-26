@@ -86,28 +86,26 @@ Module.register('MMM-page-indicator', {
     const mod = (x, n) => ((x % n) + n) % n;
 
     if (notification === 'PAGE_CHANGED') {
-      Log.log(`${this.name} received a notification to change to
-        page ${payload}`);
+      Log.log(`[${this.name}]: changing pages to ${payload}`);
       this.curPage = mod(payload, this.config.pages);
       this.updateDom();
     } else if (notification === 'MAX_PAGES_CHANGED') {
-      Log.log(`${this.name} received a notification to change the maximum
-        number of pages to ${payload}`);
+      Log.log(`[${this.name}]: Changing maximum pages to ${payload}`);
       this.config.pages = payload;
       if (payload - 1 < this.curPage) {
         this.curPage = payload - 1;
       }
       this.updateDom();
     } else if (notification === 'PAGE_INCREMENT') {
-      Log.log(`${this.name} received a notification to increment pages!`);
       this.curPage = mod(this.curPage + 1, this.config.pages);
+      Log.log(`[${this.name}]: Incrementing page; new page is ${this.curPage}`);
       this.updateDom();
     } else if (notification === 'PAGE_DECREMENT') {
-      Log.log(`${this.name} received a notification to decrement pages!`);
       this.curPage = mod(this.curPage - 1, this.config.pages);
+      Log.log(`[${this.name}]: Decrementing page; new page is ${this.curPage}`);
       this.updateDom();
     } else if (notification === 'NEW_PAGE') {
-      Log.log(`${this.name} received a notification to set new page!`);
+      Log.log(`[${this.name}]: Setting page to ${payload}`);
       this.curPage = payload;
       this.updateDom();
     }
