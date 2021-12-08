@@ -1,9 +1,25 @@
+## Maintainer needed
+
+Hello, it's been 5 years since I've written this! While I'm happy to see it
+thriving, it's also about time I step away. I haven't had a magic mirror up
+in years, and to be frank, I'm hoping someone else will be willing to take
+up maintainership of the project.
+
+That being said, this is a very mature project in that it does not need
+frequent updates. It does what it needs to do, and there's really no need for
+it to have new features. I would still recommend using it today, if not because
+people rarely seem to have problems with it.
+
+It's a very small project (with the intent to keep it this way), so if you're
+interested, please don't hesitate to reach out.
+
+---
 
 # MMM-page-indicator
 
 ![Example of MMM-page-indicator](./example_picture.png)
 
-This [MagicMirror²][mm] Module is designed indicate what "page" you are looking at. This module is designed to be an indicator only. By itself, it only offers a basic way to change the page, by clicking on the circle indicative of the page you wish to change to.
+This [MagicMirror²][mm] Module is designed to indicate what "page" you are looking at. This module is designed to be an indicator only. By itself, it only offers a basic way to change the page, by clicking on the circle indicative of the page you wish to change to.
 
 ## Installation
 
