@@ -23,6 +23,7 @@ Module.register('MMM-page-indicator', {
    */
   start() {
     this.curPage = 0;
+    this.mmmPagesDetected = false;
   },
 
   /**
@@ -96,11 +97,11 @@ Module.register('MMM-page-indicator', {
         this.curPage = payload - 1;
       }
       this.updateDom();
-    } else if (notification === 'PAGE_INCREMENT') {
+    } else if (notification === 'PAGE_INCREMENT' && !this.mmmPagesDetected) {
       this.curPage = mod(this.curPage + 1, this.config.pages);
       Log.log(`[${this.name}]: Incrementing page; new page is ${this.curPage}`);
       this.updateDom();
-    } else if (notification === 'PAGE_DECREMENT') {
+    } else if (notification === 'PAGE_DECREMENT' && !this.mmmPagesDetected) {
       this.curPage = mod(this.curPage - 1, this.config.pages);
       Log.log(`[${this.name}]: Decrementing page; new page is ${this.curPage}`);
       this.updateDom();
@@ -108,6 +109,9 @@ Module.register('MMM-page-indicator', {
       Log.log(`[${this.name}]: Setting page to ${payload}`);
       this.curPage = payload;
       this.updateDom();
+    } else if (notification === 'ALL_MODULES_STARTED') {
+      this.mmmPagesDetected = MM.getModules().withClass("MMM-pages").length > 0;
+      Log.log(`[${this.name}]: MMM-pages detected. Will ignore PAGE_INCREMENT and PAGE_DECREMENT as it is already handled by MMM-pages`);
     }
   },
 
