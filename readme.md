@@ -52,7 +52,7 @@ this.sendNotification("MAX_PAGES_CHANGED", 4);
 
 This would now show that there are now 4 pages to display.
 
-You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads (or with, but it will be ignored) to have the module change the displayed page by one.
+You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads to have the module change the displayed page by one. If you are using [MMM-pages](https://github.com/edward-shen/MMM-pages.git) with this module, sending an integer as a payload for a `PAGE_INCREMENT` or `PAGE_DECREMENT` notification will perform as described in [the MMM-pages documentation](https://github.com/edward-shen/MMM-pages#notifications). If you are not using MMM-pages, the indicator will ignore the payload and just change the displayed page by one.
 
 ## Using the module
 
