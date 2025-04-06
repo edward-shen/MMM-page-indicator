@@ -34,23 +34,18 @@ Module.register('MMM-page-indicator', {
 
     for (let i = 0; i < this.config.pages; i += 1) {
       const circle = document.createElement('i');
+      circle.classList.add('fa', 'indicator', `page-${i}`);
 
       if (this.curPage === i) {
-        circle.className = 'fa fa-circle indicator';
-        if (this.config.activeBright) {
-          circle.className += ' bright';
-        }
+        circle.classList.add('fa', 'fa-circle', 'indicator', 'bright', 'active-page', `page-${i}`);
+        if (this.config.activeBright) circle.classList.add('bright');
       } else {
-        circle.className = 'fa indicator';
-
-        if (this.config.inactiveDimmed) {
-          circle.className += ' dimmed';
-        }
-
+        if (this.config.inactiveDimmed) circle.classList.add('dimmed');
+    
         if (this.config.inactiveHollow) {
-          circle.className += ' fa-circle-thin';
+          circle.classList.add('fa-circle-thin');
         } else {
-          circle.className += ' fa-circle';
+          circle.classList.add('fa-circle');
         }
       }
       wrapper.appendChild(circle);
