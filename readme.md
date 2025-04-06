@@ -78,6 +78,28 @@ Option|Description
 `inactiveDimmed`|Should the inactive circles be dimmed?<br/>**Expected Value type:** `boolean`.
 `inactiveHollow`|Should the inactive circles be hollow?<br/>**Expected Value type:** `boolean`.
 
+## Styling
+
+- With the newly added classes, `active-page` and `page-${i}` styling of the indicator is now easier.
+- Below are some styling examples
+
+In the below example you can assign a different icon/indicator per page indicator. Below example sets the page 3 indicator to a star.
+
+```css
+.MMM-page-indicator .fa.indicator.page-2::before {
+    content:"\f005";
+    color: orange;
+    animation: blink 1s infinite;
+}
+```
+In the below example you can set animation effects to the current active-page's indicator.
+
+```css
+.MMM-page-indicator .indicator.active-page {
+    animation: pulse 1.2s ease-in-out infinite;
+}
+```
+
 ## FAQ
 
 - Help! My module is (above/below) another module in the same region but I want it to be somewhere else!
