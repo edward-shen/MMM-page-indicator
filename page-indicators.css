@@ -7,3 +7,33 @@
     margin: 0;
     font-size: 0.5em;
  }
+
+ .circle-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 0 6px;
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 4px 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Show above the circle */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    font-size: 0.8em;
+    pointer-events: none;
+  }
+  
+  .circle-wrapper:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }

@@ -18,7 +18,8 @@ interested, please don't hesitate to reach out.
 # MMM-page-indicator
 
 ![Example of MMM-page-indicator](./image-1.png)
-![Example of MMM-page-indicator](./image-2.png)
+![Example of MMM-page-indicator](./image-3.gif)
+![Example of MMM-page-indicator](./image-4.png)
 
 This [MagicMirror²][mm] Module is designed to indicate what "page" you are looking at. This module is designed to be an indicator only. By itself, it only offers a basic way to change the page, by clicking on the circle indicative of the page you wish to change to.
 
