@@ -55,7 +55,6 @@ Module.register('MMM-page-indicator', {
 
       const self = this;
 
-      // 👇 Custom tooltip element
       const tooltip = document.createElement('span');
       tooltip.classList.add('tooltip');
       tooltip.innerText = i;
@@ -70,7 +69,7 @@ Module.register('MMM-page-indicator', {
         self.curPage = i;
         self.updateDom();
       };
-      // Combine the icon and the tooltip in one wrapper
+
       circleWrapper.appendChild(circle);
       circleWrapper.appendChild(tooltip);
       wrapper.appendChild(circleWrapper);
