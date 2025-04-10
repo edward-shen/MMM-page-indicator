@@ -51,7 +51,6 @@ Module.register('MMM-page-indicator', {
           circle.classList.add('fa-circle');
         }
       }
-      wrapper.appendChild(circle);
 
       const self = this;
 
