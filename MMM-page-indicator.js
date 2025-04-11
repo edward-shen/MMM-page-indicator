@@ -33,29 +33,32 @@ Module.register('MMM-page-indicator', {
     const wrapper = document.createElement('div');
 
     for (let i = 0; i < this.config.pages; i += 1) {
+      const circleWrapper = document.createElement('div');
+      circleWrapper.classList.add('circle-wrapper');
+
       const circle = document.createElement('i');
+      circle.classList.add('fa', 'indicator', `page-${i}`);
 
       if (this.curPage === i) {
-        circle.className = 'fa fa-circle indicator';
-        if (this.config.activeBright) {
-          circle.className += ' bright';
-        }
+        circle.classList.add('fa', 'fa-circle', 'indicator', 'bright', 'active-page', `page-${i}`);
+        if (this.config.activeBright) circle.classList.add('bright');
       } else {
-        circle.className = 'fa indicator';
-
-        if (this.config.inactiveDimmed) {
-          circle.className += ' dimmed';
-        }
-
+        if (this.config.inactiveDimmed) circle.classList.add('dimmed');
+    
         if (this.config.inactiveHollow) {
-          circle.className += ' fa-circle-thin';
+          circle.classList.add('fa-circle-thin');
         } else {
-          circle.className += ' fa-circle';
+          circle.classList.add('fa-circle');
         }
       }
       wrapper.appendChild(circle);
 
       const self = this;
+
+      // 👇 Custom tooltip element
+      const tooltip = document.createElement('span');
+      tooltip.classList.add('tooltip');
+      tooltip.innerText = i;
 
       // Lets people change the page by clicking on the respective circle.
       // So apparently this doesn't work if we don't call the last two methods,
@@ -67,6 +70,10 @@ Module.register('MMM-page-indicator', {
         self.curPage = i;
         self.updateDom();
       };
+      // Combine the icon and the tooltip in one wrapper
+      circleWrapper.appendChild(circle);
+      circleWrapper.appendChild(tooltip);
+      wrapper.appendChild(circleWrapper);
     }
 
     return wrapper;
