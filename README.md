@@ -77,6 +77,7 @@ Option|Description
 `activeBright`|Should the active circle be bright.<br/>**Expected Value type:** `boolean`.
 `inactiveDimmed`|Should the inactive circles be dimmed?<br/>**Expected Value type:** `boolean`.
 `inactiveHollow`|Should the inactive circles be hollow?<br/>**Expected Value type:** `boolean`.
+`showPageNumberOnHover`|Should the page number be shown on hover?<br/>**Expected Value type:** `boolean`.
 
 ## Styling
 

@@ -9,6 +9,7 @@ Module.register('MMM-page-indicator', {
     activeBright: false,
     inactiveDimmed: true,
     inactiveHollow: true,
+    showPageNumberOnHover: true,
   },
 
   /**
@@ -70,7 +71,7 @@ Module.register('MMM-page-indicator', {
       };
 
       circleWrapper.appendChild(circle);
-      circleWrapper.appendChild(tooltip);
+      if (this.config.showPageNumberOnHover) circleWrapper.appendChild(tooltip);
       wrapper.appendChild(circleWrapper);
     }
 
