@@ -1,75 +1,46 @@
-## Maintainer needed
-
-Hello, it's been 5 years since I've written this! While I'm happy to see it
-thriving, it's also about time I step away. I haven't had a magic mirror up
-in years, and to be frank, I'm hoping someone else will be willing to take
-up maintainership of the project.
-
-That being said, this is a very mature project in that it does not need
-frequent updates. It does what it needs to do, and there's really no need for
-it to have new features. I would still recommend using it today, if not because
-people rarely seem to have problems with it.
-
-It's a very small project (with the intent to keep it this way), so if you're
-interested, please don't hesitate to reach out.
-
----
-
 # MMM-page-indicator
 
 ![Screenshot](examples/screenshot.png)
 
 This [MagicMirror²][mm] Module is designed to indicate what "page" you are looking at. This module is designed to be an indicator only. By itself, it only offers a basic way to change the page, by clicking on the circle indicative of the page you wish to change to.
 
+## Project Status
+
+This module is in **maintenance mode**. It is a small but mature and does what it is supposed to do.
+
+We will be keeping this module compatible with the latest version of MagicMirror², but we don't plan to add any new features or make any major changes to the codebase.
+
+If you have any issues or bugs, please feel free to open an issue.
+
 ## Installation
 
-In your terminal, go to your MagicMirror's Module folder:
+In your terminal, go to your MagicMirror's module directory:
 
 ```bash
 cd ~/MagicMirror/modules
 ```
+
 Clone this repository:
+
 ```bash
-git clone https://github.com/edward-shen/MMM-page-indicator.git
-```
-Configure the module in your config.js file.
-
-## Sending notifications to the module
-
-This module responds to the notification `PAGE_CHANGED`. The payload should be an `integer`. Note that this has strict error checking, so `"3"` will not work, while `3` will. Also do note that to switch to page 1, you need to send `0` to the module. **This uses a zero-based numbering system.**
-
-Let's say that you want to change the indicator to page 3. In your code, you would write:
-```js
-this.sendNotification("PAGE_CHANGED", 2);
-```
-This would cause the module to change show that you are on page 3.
-
-If you wish to change the number of pages, you need to send a `MAX_PAGES_CHANGED` notification with your payload as an integer.
-
-```js
-this.sendNotification("MAX_PAGES_CHANGED", 4);
+git clone https://github.com/edward-shen/MMM-page-indicator
 ```
 
-This would now show that there are now 4 pages to display.
-
-You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads to have the module change the displayed page by one. If you are using [MMM-pages](https://github.com/edward-shen/MMM-pages.git) with this module, sending an integer as a payload for a `PAGE_INCREMENT` or `PAGE_DECREMENT` notification will perform as described in [the MMM-pages documentation](https://github.com/edward-shen/MMM-pages#notifications). If you are not using MMM-pages, the indicator will ignore the payload and just change the displayed page by one.
-
-## Using the module
+## Configuration
 
 To use this module, add it to the modules array in the `config/config.js` file:
+
 ```js
-modules: [
     {
         module: 'MMM-page-indicator',
         position: 'bottom_bar',
         config: {
             pages: 3,
         }
-    }
-]
+    },
 ```
 
-## Configuration options
+### Configuration options
 
 Option|Description
 ------|-----------
@@ -184,6 +155,28 @@ This is an advanced example which adds a description text to the page indicators
 
 </details>
 
+## Sending notifications to the module
+
+This module responds to the notification `PAGE_CHANGED`. The payload should be an `integer`. Note that this has strict error checking, so `"3"` will not work, while `3` will. Also do note that to switch to page 1, you need to send `0` to the module. **This uses a zero-based numbering system.**
+
+Let's say that you want to change the indicator to page 3. In your code, you would write:
+
+```js
+this.sendNotification("PAGE_CHANGED", 2);
+```
+
+This would cause the module to change show that you are on page 3.
+
+If you wish to change the number of pages, you need to send a `MAX_PAGES_CHANGED` notification with your payload as an integer.
+
+```js
+this.sendNotification("MAX_PAGES_CHANGED", 4);
+```
+
+This would now show that there are now 4 pages to display.
+
+You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads to have the module change the displayed page by one. If you are using [MMM-pages](https://github.com/edward-shen/MMM-pages) with this module, sending an integer as a payload for a `PAGE_INCREMENT` or `PAGE_DECREMENT` notification will perform as described in [the MMM-pages documentation](https://github.com/edward-shen/MMM-pages#notifications). If you are not using MMM-pages, the indicator will ignore the payload and just change the displayed page by one.
+
 ## FAQ
 
 - Help! My module is (above/below) another module in the same region but I want it to be somewhere else!
@@ -198,4 +191,8 @@ This is an advanced example which adds a description text to the page indicators
 
   Please make an issue. Thanks!
 
-[mm]: https://github.com/MichMich/MagicMirror
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+[mm]: https://github.com/MagicMirrorOrg/MagicMirror
