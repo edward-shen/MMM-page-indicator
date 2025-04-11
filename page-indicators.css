@@ -1,19 +1,18 @@
 .MMM-page-indicator {
-    margin-top: 0 !important;
-}
+  margin-top: 0 !important;
 
-.MMM-page-indicator .indicator {
+  .indicator {
     padding: 0 5px;
     margin: 0;
     font-size: 0.5em;
- }
+  }
 
- .circle-wrapper {
+  .circle-wrapper {
     position: relative;
     display: inline-block;
     margin: 0 6px;
   }
-  
+
   .tooltip {
     visibility: hidden;
     background-color: #000;
@@ -32,8 +31,9 @@
     font-size: 0.8em;
     pointer-events: none;
   }
-  
+
   .circle-wrapper:hover .tooltip {
     visibility: visible;
     opacity: 1;
   }
+}
