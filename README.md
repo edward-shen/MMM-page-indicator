@@ -17,9 +17,7 @@ interested, please don't hesitate to reach out.
 
 # MMM-page-indicator
 
-![Example of MMM-page-indicator](./image-1.png)
-![Example of MMM-page-indicator](./image-3.gif)
-![Example of MMM-page-indicator](./image-4.png)
+![Screenshot](examples/screenshot.png)
 
 This [MagicMirror²][mm] Module is designed to indicate what "page" you are looking at. This module is designed to be an indicator only. By itself, it only offers a basic way to change the page, by clicking on the circle indicative of the page you wish to change to.
 
@@ -82,25 +80,108 @@ Option|Description
 
 ## Styling
 
-- With the newly added classes, `active-page` and `page-${i}` styling of the indicator is now easier.
-- Below are some styling examples
+With the CSS classes `active-page` and `page-{i}` you can easily style the page indicators. The `active-page` class is applied to the currently active page indicator, while the `page-{i}` class is applied to the page indicator of page number `i`. This allows you to change the color, icon and other properties of the indicators.
 
-In the below example you can assign a different icon/indicator per page indicator. Below example sets the page 3 indicator to a star.
+Without styling, the indicators will look like this:
+
+![screencast 1](examples/screencast_1_without-styling.gif)
+
+Below are some styling examples. Just add them to your `custom.css` file to test them on your system. With CSS you can do a lot of things, so feel free to experiment with the styles.
+
+### Example: Changing the icon of a page indicator
+
+You can assign a different icon per page indicator. This example sets the page 2 indicator to a orange star.
+
+![screencast 2](examples/screencast_2_orange-star.gif)
+
+<details>
+<summary>Click to see the CSS</summary>
 
 ```css
-.MMM-page-indicator .fa.indicator.page-2::before {
-    content:"\f005";
+.MMM-page-indicator .page-2::before {
     color: orange;
-    animation: blink 1s infinite;
+    content:"⭐";
 }
 ```
-In the below example you can set animation effects to the current active-page's indicator.
+
+</details>
+
+### Example: Animating the active page indicator
+
+This example extends the one above and adds a pulsing effect to the active page indicator.
+
+![screencast 3](examples/screencast_3_pulsing-active.gif)
+
+<details>
+<summary>Click to see the CSS</summary>
 
 ```css
-.MMM-page-indicator .indicator.active-page {
+.MMM-page-indicator .page-2::before {
+    color: orange;
+    content:"⭐";
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+.MMM-page-indicator .active-page {
     animation: pulse 1.2s ease-in-out infinite;
 }
 ```
+
+</details>
+
+### Example: Adding description text to the page indicators
+
+This is an advanced example which adds a description text to the page indicators and changes every indicator to a different icon.
+
+![screencast 4](examples/screencast_4_with-description.gif)
+
+<details>
+<summary>Click to see the CSS</summary>
+
+```css
+.MMM-page-indicator .indicator::before {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-emoji: text;
+  line-height: 1.6;
+  letter-spacing: 0.2rem;
+  white-space: pre;
+  padding: 0px 15px;
+}
+
+.MMM-page-indicator .page-0::before {
+    content:"🏠 \A Home";
+}
+
+.MMM-page-indicator .page-1::before {
+    content:"📅 \A Calendar";
+}
+
+.MMM-page-indicator .page-2::before {
+    content:"⭐ \A News";
+}
+
+.MMM-page-indicator .page-3::before {
+    content:"⛅ \A Weather";
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+.MMM-page-indicator .active-page {
+    color: orange;
+    font-variant-emoji: text;
+    animation: pulse 5s ease-in-out infinite;
+}
+```
+
+</details>
 
 ## FAQ
 
