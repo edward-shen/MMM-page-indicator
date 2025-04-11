@@ -1,0 +1,42 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.3.0](https://github.com/edward-shen/MMM-page-indicator/compare/v0.2.1...v0.3.0) - 2025-04-11
+
+### Added
+
+- feat: add indicator classes for easier styling (#17)
+- feat: add page number tooltip (#17)
+- docs: add examples for using new indicator classes in README
+- chore: add CHANGELOG file
+- chore: add package.json
+- chore: add Code of Conduct
+
+### Changed
+
+- chore: review README
+  - add 'Project Status' section
+  - move 'notifications' section to the end
+  - add link to LICENSE file
+  - some minor changes
+- chore: switch LICENSE file to markdown for better readability
+- chore: chore: replace deprecated ESLint config by flat config
+- refactor: nest all CSS settings to avoid conflicts with other modules
+
+## [0.2.1](https://github.com/edward-shen/MMM-page-indicator/compare/v0.2.0...v0.2.1) - 2022-11-18
+
+## [0.2.0](https://github.com/edward-shen/MMM-page-indicator/compare/v0.1.2...v0.2.0) - 2021-12-08
+
+## [0.1.1](https://github.com/edward-shen/MMM-page-indicator/compare/v0.1.1...v0.1.2) - 2020-06-03
+
+## [0.1.1](https://github.com/edward-shen/MMM-page-indicator/compare/v0.1.0...v0.1.1) - 2018-05-07
+
+## [0.1.0](https://github.com/edward-shen/MMM-page-indicator/compare/v0.0.1...v0.1.0) - 2017-06-19
+
+## [0.0.1](https://github.com/edward-shen/MMM-page-indicator/releases/tag/v1.0.0) - 2017-06-17
+
+Initial release.

@@ -1,0 +1,35 @@
+{
+  "name": "mmm-page-indicator",
+  "version": "0.3.0",
+  "description": "A helper module for MagicMirror² to display what page you're on.",
+  "main": "MMM-page-indicator.js",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edward-shen/MMM-page-indicator.git"
+  },
+  "keywords": [
+    "Pages",
+    "Slides"
+  ],
+  "author": "Edward Shen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edward-shen/MMM-page-indicator/issues"
+  },
+  "homepage": "https://github.com/edward-shen/MMM-page-indicator#readme",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test": "npm run lint"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint": "^9.24.0",
+    "eslint-plugin-import-x": "^4.10.2",
+    "globals": "^16.0.0"
+  }
+}

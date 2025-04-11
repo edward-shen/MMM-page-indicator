@@ -191,8 +191,17 @@ You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads
 
   Please make an issue. Thanks!
 
+## Developer commands
+
+- `npm run lint` - Run linting checks.
+- `npm run lint:fix` - Fix linting issues.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+## Changelog
+
+All notable changes to this project will be documented in the [CHANGELOG.md](CHANGELOG.md) file.
 
 [mm]: https://github.com/MagicMirrorOrg/MagicMirror
