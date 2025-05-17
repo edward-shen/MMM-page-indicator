@@ -1,12 +1,23 @@
-import eslintPluginJs from '@eslint/js'
-import eslintPluginStylistic from '@stylistic/eslint-plugin'
+import css from '@eslint/css'
+import { defineConfig } from 'eslint/config'
 import globals from 'globals'
-import { flatConfigs as importConfigs } from 'eslint-plugin-import-x'
+import { flatConfigs as importX } from 'eslint-plugin-import-x'
+import js from '@eslint/js'
+import json from '@eslint/json'
+import markdown from '@eslint/markdown'
+import stylistic from '@stylistic/eslint-plugin'
 
-const config = [
-  eslintPluginJs.configs.recommended,
-  eslintPluginStylistic.configs.recommended,
-  importConfigs.recommended,
+export default defineConfig([
+  { files: ['**/*.css'],
+    languageOptions: { tolerant: true },
+    plugins: { css },
+    language: 'css/css',
+    extends: ['css/recommended'],
+    rules: {
+      'css/use-baseline': ['error', { available: 'newly' }],
+      'css/no-important': 'off',
+    },
+  },
   {
     files: ['**/*.js'],
     languageOptions: {
@@ -19,6 +30,8 @@ const config = [
         Module: 'readonly',
       },
     },
+    plugins: { js, stylistic },
+    extends: [importX.recommended, 'js/recommended', 'stylistic/recommended'],
     rules: {
       '@stylistic/semi': ['error', 'always'],
     },
@@ -32,9 +45,13 @@ const config = [
       },
       sourceType: 'module',
     },
+    plugins: { js, stylistic },
+    extends: [importX.recommended, 'js/recommended', 'stylistic/recommended'],
     rules: {
+      '@stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
+      'import-x/no-unresolved': ['error', { ignore: ['eslint/config'] }],
     },
   },
-]
-
-export default config
+  { files: ['**/*.json'], ignores: ['package-lock.json'], plugins: { json }, extends: ['json/recommended'], language: 'json/json' },
+  { files: ['**/*.md'], plugins: { markdown }, extends: ['markdown/recommended'], language: 'markdown/gfm' },
+])
