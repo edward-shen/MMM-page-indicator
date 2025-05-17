@@ -193,8 +193,9 @@ You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads
 
 ## Developer commands
 
-- `npm run lint` - Run linting checks.
-- `npm run lint:fix` - Fix linting issues.
+- `npm install` - Install dependencies for development.
+- `node --run lint` - Run linting checks.
+- `node --run lint:fix` - Fix linting issues.
 
 ## License
 
