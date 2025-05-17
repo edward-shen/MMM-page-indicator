@@ -14,16 +14,20 @@ If you have any issues or bugs, please feel free to open an issue.
 
 ## Installation
 
-In your terminal, go to your MagicMirror's module directory:
+In your terminal, go to your MagicMirror's module directory and clone this repository:
 
 ```bash
 cd ~/MagicMirror/modules
+git clone https://github.com/edward-shen/MMM-page-indicator
 ```
 
-Clone this repository:
+### Update
+
+Just enter the module's directory, pull the update and install the dependencies:
 
 ```bash
-git clone https://github.com/edward-shen/MMM-page-indicator
+cd ~/MagicMirror/modules/MMM-page-indicator
+git pull
 ```
 
 ## Configuration
@@ -203,6 +207,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) f
 
 ## Changelog
 
-All notable changes to this project will be documented in the [CHANGELOG.md](CHANGELOG.md) file.
+All notable changes to this project will be documented in the [CHANGELOG](CHANGELOG.md) file.
 
 [mm]: https://github.com/MagicMirrorOrg/MagicMirror
