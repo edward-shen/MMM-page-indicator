@@ -1,8 +1,12 @@
 # MMM-page-indicator
 
-![Screenshot](examples/screenshot.png)
+**MMM-page-indicator** is a [MagicMirror²][mm] module that indicates which page is currently visible. It serves as an indicator and provides an easy way to switch pages by clicking on the circle representing the page you want to navigate to.
 
-This [MagicMirror²][mm] Module is designed to indicate what "page" you are looking at. This module is designed to be an indicator only. By itself, it only offers a basic way to change the page, by clicking on the circle indicative of the page you wish to change to.
+This module works well with [MMM-pages], but it is compatible with any extension that sends the `PAGE_CHANGED` notification.
+
+## Screenshot
+
+![Screenshot](examples/screenshot.png)
 
 ## Project Status
 
@@ -181,7 +185,7 @@ this.sendNotification("MAX_PAGES_CHANGED", 4);
 
 This would now show that there are now 4 pages to display.
 
-You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads to have the module change the displayed page by one. If you are using [MMM-pages](https://github.com/edward-shen/MMM-pages) with this module, sending an integer as a payload for a `PAGE_INCREMENT` or `PAGE_DECREMENT` notification will perform as described in [the MMM-pages documentation](https://github.com/edward-shen/MMM-pages#notifications). If you are not using MMM-pages, the indicator will ignore the payload and just change the displayed page by one.
+You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads to have the module change the displayed page by one. If you are using [MMM-pages] with this module, sending an integer as a payload for a `PAGE_INCREMENT` or `PAGE_DECREMENT` notification will perform as described in [the MMM-pages documentation](https://github.com/edward-shen/MMM-pages#notifications). If you are not using MMM-pages, the indicator will ignore the payload and just change the displayed page by one.
 
 ## FAQ
 
@@ -212,3 +216,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) f
 All notable changes to this project will be documented in the [CHANGELOG](CHANGELOG.md) file.
 
 [mm]: https://github.com/MagicMirrorOrg/MagicMirror
+[MMM-pages]: https://github.com/edward-shen/MMM-pages
