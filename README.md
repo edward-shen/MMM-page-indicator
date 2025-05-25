@@ -62,7 +62,7 @@ Without styling, the indicators will look like this:
 
 ![screencast 1](examples/screencast_1_without-styling.gif)
 
-Below are some styling examples. Just add them to your `custom.css` file to test them on your system. With CSS you can do a lot of things, so feel free to experiment with the styles.
+Below are some styling examples. Just add them to your `custom.css` file (usually located in `~/MagicMirror/css/`) to test them on your system. With CSS you can do a lot of things, so feel free to experiment with the styles.
 
 ### Example: Changing the icon of a page indicator
 
