@@ -2,7 +2,7 @@
 
 **MMM-page-indicator** is a [MagicMirror²][mm] module that indicates which page is currently visible. It serves as an indicator and provides an easy way to switch pages by clicking on the circle representing the page you want to navigate to.
 
-This module works well with [MMM-pages], but it is compatible with any extension that sends the `PAGE_CHANGED` notification.
+This module works well with [MMM-pages], but it is compatible with any module that sends the `PAGE_CHANGED` notification.
 
 ## Screenshot
 
