@@ -42,7 +42,7 @@ Module.register('MMM-page-indicator', {
       circle.classList.add('fa', 'indicator', `page-${i}`);
 
       if (this.curPage === i) {
-        circle.classList.add('fa-circle', 'bright', 'active-page');
+        circle.classList.add('fa-circle', 'active-page');
         if (this.config.activeBright) circle.classList.add('bright');
       }
       else {
