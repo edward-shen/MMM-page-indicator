@@ -28,7 +28,7 @@ Module.register('MMM-page-indicator', {
   },
 
   /**
-   * Render the cicles for each page, and highlighting the page we're on.
+   * Render the circles for each page, and highlighting the page we're on.
    */
   getDom() {
     const wrapper = document.createElement('div');
@@ -82,7 +82,7 @@ Module.register('MMM-page-indicator', {
   },
 
   /**
-   * If we recieve a notification that we can respond to, update which page
+   * If we receive a notification that we can respond to, update which page
    * we're suppose to show as active.
    * @param {string} notification The notification ID
    * @param {number} payload the payload type.
