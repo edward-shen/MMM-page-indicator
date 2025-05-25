@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.2](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.1...v0.3.2) - 2025-05-25
+
+### Changed
+
+- chore: add automated tests workflow
+- chore: add debug log for circle addition in page indicator
+- chore: add spell checker and fix typos
+- chore: update devDependencies
+- docs: clarify path to `custom.css`
+- docs: enhance module description
+- docs: optimize configuration section
+
+### Fixed
+
+- fix: add `bright` class to active indicator only if `activeBright` is `true`
+
 ## [0.3.1](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.0...v0.3.1) - 2025-05-17
 
 ### Changed
