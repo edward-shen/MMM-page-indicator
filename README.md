@@ -39,20 +39,22 @@ To use this module, add it to the modules array in the `config/config.js` file:
         module: 'MMM-page-indicator',
         position: 'bottom_bar',
         config: {
-            pages: 3,
+            activeBright: true,
         }
     },
 ```
 
 ### Configuration options
 
+All configuration options are optional.
+
 Option|Description
 ------|-----------
-`pages`|Number of pages that you have.<br/>**Expected Value type:** `int`.
-`activeBright`|Should the active circle be bright.<br/>**Expected Value type:** `boolean`.
-`inactiveDimmed`|Should the inactive circles be dimmed?<br/>**Expected Value type:** `boolean`.
-`inactiveHollow`|Should the inactive circles be hollow?<br/>**Expected Value type:** `boolean`.
-`showPageNumberOnHover`|Should the page number be shown on hover?<br/>**Expected Value type:** `boolean`.
+`pages`|Number of pages that you have.<br/>**Value type:** `int`<br/>**Default value:** `3`
+`activeBright`|Should the active circle be bright.<br/>**Value type:** `boolean`<br/>**Default value:** `false`
+`inactiveDimmed`|Should the inactive circles be dimmed?<br/>**Value type:** `boolean`<br/>**Default value:** `true`
+`inactiveHollow`|Should the inactive circles be hollow?<br/>**Value type:** `boolean`<br/>**Default value:** `true`
+`showPageNumberOnHover`|Should the page number be shown on hover?<br/>**Value type:** `boolean`<br/>**Default value:** `true`
 
 ## Styling
 
