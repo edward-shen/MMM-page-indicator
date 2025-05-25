@@ -34,6 +34,7 @@ Module.register('MMM-page-indicator', {
     const wrapper = document.createElement('div');
 
     for (let i = 0; i < this.config.pages; i += 1) {
+      Log.debug(`[${this.name}]: Adding circle for page ${i} of ${this.config.pages - 1}`);
       const circleWrapper = document.createElement('div');
       circleWrapper.classList.add('circle-wrapper');
 
