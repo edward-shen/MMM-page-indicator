@@ -95,37 +95,48 @@ Module.register('MMM-page-indicator', {
      */
     const mod = (x, n) => ((x % n) + n) % n;
 
-    if (notification === 'PAGE_CHANGED') {
-      Log.log(`[${this.name}]: changing pages to ${payload}`);
-      this.curPage = mod(payload, this.config.pages);
-      this.updateDom();
-    }
-    else if (notification === 'MAX_PAGES_CHANGED') {
-      Log.log(`[${this.name}]: Changing maximum pages to ${payload}`);
-      this.config.pages = payload;
-      if (payload - 1 < this.curPage) {
-        this.curPage = payload - 1;
-      }
-      this.updateDom();
-    }
-    else if (notification === 'PAGE_INCREMENT' && !this.mmmPagesDetected) {
-      this.curPage = mod(this.curPage + 1, this.config.pages);
-      Log.log(`[${this.name}]: Incrementing page; new page is ${this.curPage}`);
-      this.updateDom();
-    }
-    else if (notification === 'PAGE_DECREMENT' && !this.mmmPagesDetected) {
-      this.curPage = mod(this.curPage - 1, this.config.pages);
-      Log.log(`[${this.name}]: Decrementing page; new page is ${this.curPage}`);
-      this.updateDom();
-    }
-    else if (notification === 'NEW_PAGE') {
-      Log.log(`[${this.name}]: Setting page to ${payload}`);
-      this.curPage = payload;
-      this.updateDom();
-    }
-    else if (notification === 'ALL_MODULES_STARTED') {
-      this.mmmPagesDetected = MM.getModules().withClass('MMM-pages').length > 0;
-      Log.log(`[${this.name}]: MMM-pages detected. Will ignore PAGE_INCREMENT and PAGE_DECREMENT as it is already handled by MMM-pages`);
+    switch (notification) {
+      case 'PAGE_CHANGED':
+        Log.log(`[${this.name}]: changing pages to ${payload}`);
+        this.curPage = mod(payload, this.config.pages);
+        this.updateDom();
+        break;
+
+      case 'MAX_PAGES_CHANGED':
+        Log.log(`[${this.name}]: Changing maximum pages to ${payload}`);
+        this.config.pages = payload;
+        if (payload - 1 < this.curPage) {
+          this.curPage = payload - 1;
+        }
+        this.updateDom();
+        break;
+
+      case 'PAGE_INCREMENT':
+        if (!this.mmmPagesDetected) {
+          this.curPage = mod(this.curPage + 1, this.config.pages);
+          Log.log(`[${this.name}]: Incrementing page; new page is ${this.curPage}`);
+          this.updateDom();
+        }
+        break;
+
+      case 'PAGE_DECREMENT':
+        if (!this.mmmPagesDetected) {
+          this.curPage = mod(this.curPage - 1, this.config.pages);
+          Log.log(`[${this.name}]: Decrementing page; new page is ${this.curPage}`);
+          this.updateDom();
+        }
+        break;
+
+      case 'NEW_PAGE':
+        Log.log(`[${this.name}]: Setting page to ${payload}`);
+        this.curPage = payload;
+        this.updateDom();
+        break;
+
+      case 'ALL_MODULES_STARTED':
+        this.mmmPagesDetected = MM.getModules().withClass('MMM-pages').length > 0;
+        Log.log(`[${this.name}]: MMM-pages detected. Will ignore PAGE_INCREMENT and PAGE_DECREMENT as it is already handled by MMM-pages`);
+        break;
     }
   },
 
