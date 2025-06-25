@@ -9,12 +9,10 @@ import stylistic from '@stylistic/eslint-plugin'
 
 export default defineConfig([
   { files: ['**/*.css'],
-    languageOptions: { tolerant: true },
     plugins: { css },
     language: 'css/css',
     extends: ['css/recommended'],
     rules: {
-      'css/use-baseline': ['error', { available: 'newly' }],
       'css/no-important': 'off',
     },
   },
@@ -49,7 +47,6 @@ export default defineConfig([
     extends: [importX.recommended, 'js/recommended', 'stylistic/recommended'],
     rules: {
       '@stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
-      'import-x/no-unresolved': ['error', { ignore: ['eslint/config'] }],
     },
   },
   { files: ['**/*.json'], ignores: ['package-lock.json'], plugins: { json }, extends: ['json/recommended'], language: 'json/json' },
