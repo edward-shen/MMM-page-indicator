@@ -4,9 +4,6 @@
   "description": "A helper module for MagicMirror² to display what page you're on.",
   "main": "MMM-page-indicator.js",
   "type": "module",
-  "directories": {
-    "example": "examples"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/edward-shen/MMM-page-indicator.git"
