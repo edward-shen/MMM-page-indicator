@@ -52,13 +52,13 @@ To use this module, add it to the modules array in the `config/config.js` file:
 
 All configuration options are optional.
 
-Option|Description
-------|-----------
-`pages`|Number of pages that you have.<br/>**Value type:** `int`<br/>**Default value:** `3`
-`activeBright`|Should the active circle be bright.<br/>**Value type:** `boolean`<br/>**Default value:** `false`
-`inactiveDimmed`|Should the inactive circles be dimmed?<br/>**Value type:** `boolean`<br/>**Default value:** `true`
-`inactiveHollow`|Should the inactive circles be hollow?<br/>**Value type:** `boolean`<br/>**Default value:** `true`
-`showPageNumberOnHover`|Should the page number be shown on hover?<br/>**Value type:** `boolean`<br/>**Default value:** `true`
+| Option                  | Description                                                                                           |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| `pages`                 | Number of pages that you have.<br/>**Value type:** `int`<br/>**Default value:** `3`                   |
+| `activeBright`          | Should the active circle be bright.<br/>**Value type:** `boolean`<br/>**Default value:** `false`      |
+| `inactiveDimmed`        | Should the inactive circles be dimmed?<br/>**Value type:** `boolean`<br/>**Default value:** `true`    |
+| `inactiveHollow`        | Should the inactive circles be hollow?<br/>**Value type:** `boolean`<br/>**Default value:** `true`    |
+| `showPageNumberOnHover` | Should the page number be shown on hover?<br/>**Value type:** `boolean`<br/>**Default value:** `true` |
 
 ## Styling
 
@@ -81,8 +81,8 @@ You can assign a different icon per page indicator. This example sets the page 2
 
 ```css
 .MMM-page-indicator .page-2::before {
-    color: orange;
-    content:"⭐";
+  color: orange;
+  content: "⭐";
 }
 ```
 
@@ -99,17 +99,24 @@ This example extends the one above and adds a pulsing effect to the active page 
 
 ```css
 .MMM-page-indicator .page-2::before {
-    color: orange;
-    content:"⭐";
+  color: orange;
+  content: "⭐";
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.6; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
 }
 
 .MMM-page-indicator .active-page {
-    animation: pulse 1.2s ease-in-out infinite;
+  animation: pulse 1.2s ease-in-out infinite;
 }
 ```
 
@@ -136,30 +143,37 @@ This is an advanced example which adds a description text to the page indicators
 }
 
 .MMM-page-indicator .page-0::before {
-    content:"🏠 \A Home";
+  content: "🏠 \A Home";
 }
 
 .MMM-page-indicator .page-1::before {
-    content:"📅 \A Calendar";
+  content: "📅 \A Calendar";
 }
 
 .MMM-page-indicator .page-2::before {
-    content:"⭐ \A News";
+  content: "⭐ \A News";
 }
 
 .MMM-page-indicator .page-3::before {
-    content:"⛅ \A Weather";
+  content: "⛅ \A Weather";
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.6; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
 }
 
 .MMM-page-indicator .active-page {
-    color: orange;
-    font-variant-emoji: text;
-    animation: pulse 5s ease-in-out infinite;
+  color: orange;
+  font-variant-emoji: text;
+  animation: pulse 5s ease-in-out infinite;
 }
 ```
 
@@ -192,11 +206,11 @@ You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads
 - Help! My module is (above/below) another module in the same region but I want it to be somewhere else!
 
   The order of your `config.js` determines your module location. If you have two modules, both with `position:bottom_bar`, the one that is first listed will appear on top. The rest will appear in the same order you defined them in. If you want this module to be at the very bottom, define this module as the last module in your `config.js` file. If you want it to be on top in that region, make sure no other module is defined before it that has the same region.
-  
+
 - Can I make a pull request?
 
   Please do! I'd love for this to be integrated in many modules!
-  
+
 - I want more config options!
 
   Please make an issue. Thanks!
