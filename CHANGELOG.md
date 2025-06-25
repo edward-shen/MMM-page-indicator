@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.3](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.2...v0.3.3) - 2025-06-25
+
+### Changed
+
+- chore: add `"type": "module"` to `package.json`
+- chore: add `prettier`, `husky` and `lint-staged` for improved linting and formatting
+- chore: remove superfluous ESLint settings
+- chore: remove unnecessary `directories` field from `package.json`
+- chore: update devDependencies
+- refactor: streamline notification handling with switch-case structure
+
+### Fixed
+
+- chore: handle `prettier` issues
+- docs: fix wording in README.md
+
 ## [0.3.2](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.1...v0.3.2) - 2025-05-25
 
 ### Changed
