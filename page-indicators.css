@@ -5,12 +5,26 @@
     padding: 0 5px;
     margin: 0;
     font-size: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   .circle-wrapper {
     position: relative;
-    display: inline-block;
-    margin: 0 6px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    vertical-align: top;
+  }
+
+  .indicator::before {
+    display: block;
+    margin-top: 0.3em;
+    text-align: center;
+    width: 100%;
   }
 
   .tooltip {
