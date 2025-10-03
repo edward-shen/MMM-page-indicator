@@ -11,15 +11,6 @@
     width: 100%;
   }
 
-  .circle-wrapper {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 10px;
-    vertical-align: top;
-  }
-
   .indicator::before {
     display: block;
     margin-top: 0.3em;
@@ -44,6 +35,15 @@
     white-space: nowrap;
     font-size: 0.8em;
     pointer-events: none;
+  }
+
+  .circle-wrapper {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    vertical-align: top;
   }
 
   .circle-wrapper:hover .tooltip {
