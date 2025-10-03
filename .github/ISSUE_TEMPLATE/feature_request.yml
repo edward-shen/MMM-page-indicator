@@ -1,0 +1,91 @@
+name: Feature Request
+description: Suggest an idea for MMM-page-indicator
+labels:
+  - feature
+  - to check
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to share an idea! For general brainstorming or questions, you can also use the forum:
+        https://forum.magicmirror.builders/category/29/troubleshooting
+
+        Please help us understand the problem and your proposed solution. Clear context helps us assess and prioritize.
+  - type: checkboxes
+    attributes:
+      label: Pre-flight checks
+      options:
+        - label: I searched existing issues and discussions to avoid duplicates.
+          required: true
+        - label: This is a feature request (not a support/troubleshooting question).
+          required: true
+  - type: textarea
+    attributes:
+      label: Problem / Use case
+      description: What problem are you trying to solve? Why is it important for you?
+      placeholder: |
+        When I ... I can't ..., which makes it hard to ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed solution
+      description: What would you like to happen? Try to be specific.
+      placeholder: |
+        Add a new feature that ..., so that ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives considered
+      description: What else did you try or consider? Why wasn't it good enough?
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: UI/UX details (if applicable)
+      description: Describe any UI changes. Wireframes or screenshots are welcome.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Technical details (if applicable)
+      description: Would this require changes to configuration options, notifications, or module behavior?
+      placeholder: |
+        New config option `foo: true` or notification `BAR_CHANGED`
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Backwards compatibility
+      description: Would this break existing setups? If so, can we provide a migration path?
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Priority / Impact
+      options:
+        - Low
+        - Medium
+        - High
+  - type: dropdown
+    attributes:
+      label: "Willing to contribute a PR?"
+      description: Select Yes if you plan to open a pull request for this feature.
+      options:
+        - "Yes"
+        - "No"
+  - type: textarea
+    attributes:
+      label: Implementation hints (optional)
+      description: Pointers to code areas or a rough plan help (files, functions, links).
+      placeholder: |
+        Likely touches MMM-page-indicator.js (getDom), page-indicators.css for styling, or notification handling.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Anything else we should know? Links, screenshots, or related modules.
+    validations:
+      required: false
