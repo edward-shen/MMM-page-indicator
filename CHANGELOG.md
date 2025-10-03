@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.4](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.3...v0.3.4) - 2025-10-03
+
+### Added
+
+- chore: add Dependabot configuration for GitHub Actions and npm updates
+
+### Changed
+
+- chore: update devDependencies
+- chore: update GitHub Actions to use latest versions of checkout and setup-node
+- style: enhance layout of indicators and circle wrappers for better alignment
+  MagicMirror² switched to `flex` layout in v2.32.0 which caused misalignment. This update addresses that by refining the CSS.
+- style: reorder .circle-wrapper styles for improved readability
+
 ## [0.3.3](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.2...v0.3.3) - 2025-06-25
 
 ### Changed
