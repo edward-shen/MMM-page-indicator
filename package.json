@@ -1,6 +1,6 @@
 {
   "name": "mmm-page-indicator",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "A helper module for MagicMirror² to display what page you're on.",
   "main": "MMM-page-indicator.js",
   "type": "module",
