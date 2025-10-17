@@ -179,6 +179,80 @@ This is an advanced example which adds a description text to the page indicators
 
 </details>
 
+### Example: Rectangular progress-style indicators
+
+Turn the dots into elongated bars with a sweeping highlight similar to carousel indicators. The active bar turns red and shows a yellow streak sliding across it.
+
+![screencast 5](examples/screencast_5_rectangular-indicators.gif)
+
+<details>
+<summary>Click to see the CSS</summary>
+
+```css
+.MMM-page-indicator {
+  --indicator-width: 80px;
+  --indicator-height: 4px;
+  --indicator-streak-width: 8px;
+  --indicator-gap: 8px;
+  --indicator-color: #e1e2e4;
+  --indicator-active-color: #e40000;
+  --indicator-streak-color: yellow;
+  --indicator-streak-blur: 2px;
+  --indicator-sweep-duration: 5s;
+}
+
+.MMM-page-indicator .circle-wrapper {
+  margin: 0 var(--indicator-gap);
+}
+
+.MMM-page-indicator .indicator {
+  display: inline-block;
+  width: var(--indicator-width);
+  height: var(--indicator-height);
+  border-radius: 2px;
+  background: var(--indicator-color);
+  position: relative;
+  overflow: hidden;
+  color: transparent;
+}
+
+.MMM-page-indicator .indicator::before {
+  content: "";
+}
+
+.MMM-page-indicator .active-page {
+  background: var(--indicator-active-color);
+}
+
+.MMM-page-indicator .active-page::after {
+  content: "";
+  position: absolute;
+  top: -150%;
+  bottom: -150%;
+  left: calc(var(--indicator-streak-width) * -2);
+  width: var(--indicator-streak-width);
+  background: var(--indicator-streak-color);
+  filter: blur(var(--indicator-streak-blur));
+  opacity: 0.9;
+  animation: indicator-sweep var(--indicator-sweep-duration) linear infinite;
+  pointer-events: none;
+}
+
+@keyframes indicator-sweep {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(
+      calc(var(--indicator-width) + (var(--indicator-streak-width) * 2))
+    );
+  }
+}
+```
+
+</details>
+
 ## Sending notifications to the module
 
 This module responds to the notification `PAGE_CHANGED`. The payload should be an `integer`. Note that this has strict error checking, so `"3"` will not work, while `3` will. Also do note that to switch to page 1, you need to send `0` to the module. **This uses a zero-based numbering system.**
