@@ -28,8 +28,8 @@ export default defineConfig([
         Module: 'readonly',
       },
     },
-    plugins: { js, stylistic },
-    extends: [importX.recommended, 'js/recommended', 'stylistic/recommended'],
+    plugins: { js },
+    extends: [importX.recommended, 'js/recommended', stylistic.configs.recommended],
     rules: {
       '@stylistic/semi': ['error', 'always'],
     },
