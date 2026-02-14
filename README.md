@@ -295,6 +295,7 @@ You can also just send `PAGE_INCREMENT` or `PAGE_DECREMENT` without any payloads
 - `node --run demo` - Start MagicMirror with demo config showcasing and testing the module.
 - `node --run lint` - Run linting checks.
 - `node --run lint:fix` - Fix linting issues.
+- `node --run release` - Create a new release. (Bumps version, creates changelog, commits, tags)
 
 ## License
 

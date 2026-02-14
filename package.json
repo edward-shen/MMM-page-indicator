@@ -23,6 +23,7 @@
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "node -e \"try{require('simple-git-hooks').run()}catch(e){}\"",
+    "release": "commit-and-tag-version --config ./changelog.config.cjs",
     "test": "node --run lint && node --run test:spelling && node --run test:unit",
     "test:spelling": "cspell .",
     "test:unit": "node --test tests/unit/**/*.test.js"
@@ -42,6 +43,7 @@
     "@eslint/json": "^1.0.1",
     "@eslint/markdown": "^7.5.1",
     "@stylistic/eslint-plugin": "^5.8.0",
+    "commit-and-tag-version": "^12.6.1",
     "cspell": "^9.6.4",
     "eslint": "^9.38.0",
     "eslint-plugin-import-x": "^4.16.1",
