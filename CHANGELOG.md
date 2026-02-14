@@ -1,9 +1,29 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.3.6](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.5...v0.3.6) (2026-02-14)
+
+
+### Performance Improvements
+
+* optimize click handler and add payload validation ([227cdc2](https://github.com/edward-shen/MMM-page-indicator/commit/227cdc22bfafdc027b7bca5d07ea5a1bf94e677d))
+* remove duplicate DOM update in click handler ([9f2910c](https://github.com/edward-shen/MMM-page-indicator/commit/9f2910ced6e50b4e7b5a6e1b4d5bc0bf28443f64))
+
+
+### Chores
+
+* add demo config file and package.json script ([943d8fb](https://github.com/edward-shen/MMM-page-indicator/commit/943d8fb73cf9b38b95bdff8a39c33a38bd7019f0))
+* add release script ([9c695af](https://github.com/edward-shen/MMM-page-indicator/commit/9c695af6c0bd01a6de94ee3c074a5b83bdf9148c))
+* change runner from ubuntu-latest to ubuntu-slim in automated tests ([ef3041e](https://github.com/edward-shen/MMM-page-indicator/commit/ef3041e20178a224d0fb8f527ef604671a55c0cb))
+* replace husky with simple-git-hooks for pre-commit linting ([4581aae](https://github.com/edward-shen/MMM-page-indicator/commit/4581aae23c3fa229771a851293d768c7983c512a))
+* update devDependencies and ESLint config ([d60f215](https://github.com/edward-shen/MMM-page-indicator/commit/d60f215bf27de341a53463cf45a010f19a7bbb07))
+* update GitHub Actions to use latest versions of checkout and setup-node ([1308384](https://github.com/edward-shen/MMM-page-indicator/commit/1308384f3dc480c723a607574fa1eff3830bd141))
+
+
+### Tests
+
+* add comprehensive unit test suite with node:test ([a71b874](https://github.com/edward-shen/MMM-page-indicator/commit/a71b8741a6758120aec3abb22f6fe1492ecc746e))
 
 ## [0.3.5](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.4...v0.3.5) - 2025-10-17
 
