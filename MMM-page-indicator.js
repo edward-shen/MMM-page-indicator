@@ -56,21 +56,16 @@ Module.register('MMM-page-indicator', {
         }
       }
 
-      const self = this;
-
       const tooltip = document.createElement('span');
       tooltip.classList.add('tooltip');
-      tooltip.innerText = i;
+      tooltip.innerText = String(i);
 
       // Lets people change the page by clicking on the respective circle.
-      // So apparently this doesn't work if we don't call the last two methods,
-      // despite those methods being called in when calling sendNotification.
-      // This is likely a bug (because spamming a single button) causes rapid-
-      // fire page changing, but for most cases that shouldn't be a problem.
+      // sendNotification triggers notificationReceived which calls updateDom,
+      // so we don't need to call it here to avoid duplicate DOM updates.
       circle.onclick = () => {
-        self.sendNotification('PAGE_CHANGED', i);
-        self.curPage = i;
-        self.updateDom();
+        this.sendNotification('PAGE_CHANGED', i);
+        this.curPage = i;
       };
 
       circleWrapper.appendChild(circle);
