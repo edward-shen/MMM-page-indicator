@@ -3,7 +3,7 @@ let config = {
     {
       module: 'MMM-pages',
       config: {
-      useLockString: false,
+        useLockString: false,
         timings: {
           default: 5000,
         },
@@ -13,28 +13,27 @@ let config = {
           ['page2'],
           ['page3'],
 
-        ]
-      }
+        ],
+      },
     },
-   {
-    module: "compliments",
-    position: "lower_third",
-    classes: "page0 test1",  // Auf der ersten Seite
-    hiddenOnStartup: true,  // ← Das Flag setzen!
-    config: {
+    {
+      module: 'compliments',
+      position: 'lower_third',
+      classes: 'page0',
+      config: {
         compliments: {
-            anytime: ["TEST MODULE - Should be hidden on startup!"]
-        }
-    }
-},
+          anytime: ['Page 0: First page content'],
+        },
+      },
+    },
     {
       disabled: false,
       module: 'MMM-page-indicator',
-      classes: 'fixed_page test2',
+      classes: 'fixed_page',
       position: 'bottom_bar',
       config: {
-      showPageNumberOnHover: true
-      }
+        showPageNumberOnHover: true,
+      },
     },
     {
       module: 'compliments',
@@ -42,30 +41,32 @@ let config = {
       position: 'top_bar',
       config: {
         compliments: {
-          'anytime': ['Test MMM-pages: Class based configuration'],
-        }
-      }
+          anytime: ['Test MMM-pages: Class based configuration'],
+        },
+      },
     },
     {
       module: 'clock',
-      classes: 'page1 page4 page12',
-      position: 'middle_center'
+      classes: 'page1',
+      position: 'middle_center',
     },
     {
-      module: "newsfeed",
+      module: 'newsfeed',
       classes: 'page2 page3',
-      position: "middle_center",
+      position: 'middle_center',
       config: {
         feeds: [
           {
-            title: "New York Times",
-            url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-          }
-        ]
-      }
+            title: 'New York Times',
+            url: 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml',
+          },
+        ],
+      },
     },
-  ]
+  ],
 };
 
 /** ************* DO NOT EDIT THE LINE BELOW ***************/
-if (typeof module !== 'undefined') { module.exports = config; }
+if (typeof module !== 'undefined') {
+  module.exports = config;
+}

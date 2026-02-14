@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["Shen"],
+  "words": ["newsfeed", "Shen"],
   "ignorePaths": ["node_modules/**"],
   "dictionaries": ["node"]
 }
