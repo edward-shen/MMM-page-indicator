@@ -21,9 +21,12 @@
   "scripts": {
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",
-    "prepare": "[ -f node_modules/.bin/husky ] && husky || echo husky is not installed.",
+    "prepare": "node -e \"try{require('simple-git-hooks').run()}catch(e){}\"",
     "test": "node --run lint && node --run test:spelling",
     "test:spelling": "cspell ."
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*": [
@@ -41,8 +44,8 @@
     "eslint": "^9.38.0",
     "eslint-plugin-import-x": "^4.16.1",
     "globals": "^16.4.0",
-    "husky": "^9.1.7",
     "lint-staged": "^16.2.4",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "simple-git-hooks": "^2.13.1"
   }
 }
