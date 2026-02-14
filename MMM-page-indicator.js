@@ -61,11 +61,9 @@ Module.register('MMM-page-indicator', {
       tooltip.innerText = String(i);
 
       // Lets people change the page by clicking on the respective circle.
-      // sendNotification triggers notificationReceived which calls updateDom,
-      // so we don't need to call it here to avoid duplicate DOM updates.
+      // sendNotification triggers notificationReceived which calls updateDom.
       circle.onclick = () => {
         this.sendNotification('PAGE_CHANGED', i);
-        this.curPage = i;
       };
 
       circleWrapper.appendChild(circle);
@@ -92,18 +90,29 @@ Module.register('MMM-page-indicator', {
 
     switch (notification) {
       case 'PAGE_CHANGED':
-        Log.log(`[${this.name}]: changing pages to ${payload}`);
-        this.curPage = mod(payload, this.config.pages);
-        this.updateDom();
+        if (typeof payload === 'number' && !Number.isNaN(payload)) {
+          Log.log(`[${this.name}]: changing pages to ${payload}`);
+          this.curPage = mod(payload, this.config.pages);
+          this.updateDom();
+        }
+        else {
+          Log.warn(`[${this.name}]: Invalid payload for PAGE_CHANGED: ${payload}`);
+        }
         break;
 
       case 'MAX_PAGES_CHANGED':
-        Log.log(`[${this.name}]: Changing maximum pages to ${payload}`);
-        this.config.pages = payload;
-        if (payload - 1 < this.curPage) {
-          this.curPage = payload - 1;
+        // Validate payload is a positive integer
+        if (Number.isInteger(payload) && payload > 0) {
+          Log.log(`[${this.name}]: Changing maximum pages to ${payload}`);
+          this.config.pages = payload;
+          if (payload - 1 < this.curPage) {
+            this.curPage = payload - 1;
+          }
+          this.updateDom();
         }
-        this.updateDom();
+        else {
+          Log.warn(`[${this.name}]: Invalid payload for MAX_PAGES_CHANGED: ${payload}`);
+        }
         break;
 
       case 'PAGE_INCREMENT':
@@ -123,9 +132,14 @@ Module.register('MMM-page-indicator', {
         break;
 
       case 'NEW_PAGE':
-        Log.log(`[${this.name}]: Setting page to ${payload}`);
-        this.curPage = payload;
-        this.updateDom();
+        if (typeof payload === 'number' && !Number.isNaN(payload)) {
+          Log.log(`[${this.name}]: Setting page to ${payload}`);
+          this.curPage = payload;
+          this.updateDom();
+        }
+        else {
+          Log.warn(`[${this.name}]: Invalid payload for NEW_PAGE: ${payload}`);
+        }
         break;
 
       case 'ALL_MODULES_STARTED':
