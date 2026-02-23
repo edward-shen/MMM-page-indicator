@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.7](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.6...v0.3.7) (2026-02-23)
+
+
+### Added
+
+* use PAGE_SELECT notification instead of deprecated PAGE_CHANGED ([ce4474f](https://github.com/edward-shen/MMM-page-indicator/commit/ce4474fd7116b4541b652a2063dd5860ec10b09c))
+
+
+### Chores
+
+* fix linter issues ([5d9374d](https://github.com/edward-shen/MMM-page-indicator/commit/5d9374dbb7cb6c136157083d9793779b144d91f2))
+* update devDependencies ([9529a4c](https://github.com/edward-shen/MMM-page-indicator/commit/9529a4c9ad483f973282d83d22b41b49f1126ebf))
+
 ## [0.3.6](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.5...v0.3.6) (2026-02-14)
 
 
