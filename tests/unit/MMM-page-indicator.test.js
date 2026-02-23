@@ -169,6 +169,41 @@ describe('MMM-page-indicator', () => {
       module.notificationReceived('PAGE_CHANGED', 5);
       assert.equal(module.curPage, 2);
     });
+
+    it('should log deprecation warning', () => {
+      module.notificationReceived('PAGE_CHANGED', 1);
+      assert.equal(Log.warn.mock.callCount(), 1);
+      assert.ok(Log.warn.mock.calls[0].arguments[0].includes('deprecated'));
+    });
+  });
+
+  describe('notificationReceived - PAGE_SELECT', () => {
+    it('should update current page', () => {
+      module.notificationReceived('PAGE_SELECT', 2);
+      assert.equal(module.curPage, 2);
+    });
+
+    it('should call updateDom', () => {
+      module.notificationReceived('PAGE_SELECT', 1);
+      assert.equal(module.updateDom.mock.callCount(), 1);
+    });
+
+    it('should handle negative page numbers with modulo', () => {
+      module.config.pages = 5;
+      module.notificationReceived('PAGE_SELECT', -1);
+      assert.equal(module.curPage, 4);
+    });
+
+    it('should wrap around page numbers', () => {
+      module.config.pages = 3;
+      module.notificationReceived('PAGE_SELECT', 5);
+      assert.equal(module.curPage, 2);
+    });
+
+    it('should not log deprecation warning', () => {
+      module.notificationReceived('PAGE_SELECT', 1);
+      assert.equal(Log.warn.mock.callCount(), 0);
+    });
   });
 
   describe('notificationReceived - MAX_PAGES_CHANGED', () => {
@@ -280,14 +315,14 @@ describe('MMM-page-indicator', () => {
   });
 
   describe('click handler', () => {
-    it('should send PAGE_CHANGED notification', () => {
+    it('should send PAGE_SELECT notification', () => {
       const wrapper = module.getDom();
       const indicator = wrapper.querySelector('.page-1');
 
       indicator.click();
 
       assert.equal(module.sendNotification.mock.callCount(), 1);
-      assert.deepEqual(module.sendNotification.mock.calls[0].arguments, ['PAGE_CHANGED', 1]);
+      assert.deepEqual(module.sendNotification.mock.calls[0].arguments, ['PAGE_SELECT', 1]);
     });
 
     it('should update current page', () => {
@@ -398,7 +433,8 @@ describe('MMM-page-indicator', () => {
 
     it('should log warning for invalid PAGE_CHANGED payload', () => {
       module.notificationReceived('PAGE_CHANGED', undefined);
-      assert.equal(Log.warn.mock.callCount(), 1);
+      // 2 warnings: deprecation + invalid payload
+      assert.equal(Log.warn.mock.callCount(), 2);
     });
 
     it('should log warning for invalid MAX_PAGES_CHANGED payload', () => {

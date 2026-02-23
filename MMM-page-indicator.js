@@ -63,7 +63,7 @@ Module.register('MMM-page-indicator', {
       // Lets people change the page by clicking on the respective circle.
       // sendNotification triggers notificationReceived which calls updateDom.
       circle.onclick = () => {
-        this.sendNotification('PAGE_CHANGED', i);
+        this.sendNotification('PAGE_SELECT', i);
       };
 
       circleWrapper.appendChild(circle);
@@ -90,13 +90,16 @@ Module.register('MMM-page-indicator', {
 
     switch (notification) {
       case 'PAGE_CHANGED':
+        Log.warn(`[${this.name}]: The notification "PAGE_CHANGED" is deprecated. Please use "PAGE_SELECT" instead.`);
+        // falls through
+      case 'PAGE_SELECT':
         if (typeof payload === 'number' && !Number.isNaN(payload)) {
           Log.log(`[${this.name}]: changing pages to ${payload}`);
           this.curPage = mod(payload, this.config.pages);
           this.updateDom();
         }
         else {
-          Log.warn(`[${this.name}]: Invalid payload for PAGE_CHANGED: ${payload}`);
+          Log.warn(`[${this.name}]: Invalid payload for PAGE_SELECT: ${payload}`);
         }
         break;
 
