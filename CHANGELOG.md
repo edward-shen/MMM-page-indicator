@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.8](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.7...v0.3.8) (2026-02-25)
+
+
+### Code Refactoring
+
+* replace deprecated PAGE_CHANGED with PAGE_SELECT in docs and tests ([1288a4f](https://github.com/edward-shen/MMM-page-indicator/commit/1288a4f83382050897ff400e0d1226a80edd2262))
+
 ## [0.3.7](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.6...v0.3.7) (2026-02-23)
 
 
