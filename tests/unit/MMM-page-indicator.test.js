@@ -148,28 +148,6 @@ describe('MMM-page-indicator', () => {
   });
 
   describe('notificationReceived - PAGE_CHANGED', () => {
-    it('should update current page', () => {
-      module.notificationReceived('PAGE_CHANGED', 2);
-      assert.equal(module.curPage, 2);
-    });
-
-    it('should call updateDom', () => {
-      module.notificationReceived('PAGE_CHANGED', 1);
-      assert.equal(module.updateDom.mock.callCount(), 1);
-    });
-
-    it('should handle negative page numbers with modulo', () => {
-      module.config.pages = 5;
-      module.notificationReceived('PAGE_CHANGED', -1);
-      assert.equal(module.curPage, 4);
-    });
-
-    it('should wrap around page numbers', () => {
-      module.config.pages = 3;
-      module.notificationReceived('PAGE_CHANGED', 5);
-      assert.equal(module.curPage, 2);
-    });
-
     it('should log deprecation warning', () => {
       module.notificationReceived('PAGE_CHANGED', 1);
       assert.equal(Log.warn.mock.callCount(), 1);
@@ -351,33 +329,33 @@ describe('MMM-page-indicator', () => {
   });
 
   describe('edge cases - invalid payloads', () => {
-    it('should reject undefined payload in PAGE_CHANGED', () => {
+    it('should reject undefined payload in PAGE_SELECT', () => {
       module.curPage = 1;
-      module.notificationReceived('PAGE_CHANGED', undefined);
+      module.notificationReceived('PAGE_SELECT', undefined);
       // Invalid payload should be rejected, curPage stays unchanged
       assert.equal(module.curPage, 1);
       assert.equal(module.updateDom.mock.callCount(), 0);
     });
 
-    it('should reject null payload in PAGE_CHANGED', () => {
+    it('should reject null payload in PAGE_SELECT', () => {
       module.curPage = 1;
-      module.notificationReceived('PAGE_CHANGED', null);
+      module.notificationReceived('PAGE_SELECT', null);
       // null is typeof 'object', not 'number', so it should be rejected
       assert.equal(module.curPage, 1);
       assert.equal(module.updateDom.mock.callCount(), 0);
     });
 
-    it('should handle string payload in PAGE_CHANGED', () => {
+    it('should handle string payload in PAGE_SELECT', () => {
       module.config.pages = 5;
-      module.notificationReceived('PAGE_CHANGED', '2');
+      module.notificationReceived('PAGE_SELECT', '2');
       // String '2' is not a number type, should be rejected
       assert.equal(module.curPage, 0);
       assert.equal(module.updateDom.mock.callCount(), 0);
     });
 
-    it('should reject NaN payload in PAGE_CHANGED', () => {
+    it('should reject NaN payload in PAGE_SELECT', () => {
       module.curPage = 1;
-      module.notificationReceived('PAGE_CHANGED', Number.NaN);
+      module.notificationReceived('PAGE_SELECT', Number.NaN);
       // NaN should be rejected, curPage stays unchanged
       assert.equal(module.curPage, 1);
       assert.equal(module.updateDom.mock.callCount(), 0);
@@ -431,10 +409,9 @@ describe('MMM-page-indicator', () => {
       assert.equal(module.updateDom.mock.callCount(), 0);
     });
 
-    it('should log warning for invalid PAGE_CHANGED payload', () => {
-      module.notificationReceived('PAGE_CHANGED', undefined);
-      // 2 warnings: deprecation + invalid payload
-      assert.equal(Log.warn.mock.callCount(), 2);
+    it('should log warning for invalid PAGE_SELECT payload', () => {
+      module.notificationReceived('PAGE_SELECT', undefined);
+      assert.equal(Log.warn.mock.callCount(), 1);
     });
 
     it('should log warning for invalid MAX_PAGES_CHANGED payload', () => {
@@ -474,14 +451,14 @@ describe('MMM-page-indicator', () => {
 
     it('should handle very large page numbers', () => {
       module.config.pages = 3;
-      module.notificationReceived('PAGE_CHANGED', 1000);
+      module.notificationReceived('PAGE_SELECT', 1000);
       // 1000 % 3 = 1
       assert.equal(module.curPage, 1);
     });
 
     it('should handle very large negative page numbers', () => {
       module.config.pages = 5;
-      module.notificationReceived('PAGE_CHANGED', -17);
+      module.notificationReceived('PAGE_SELECT', -17);
       // ((-17 % 5) + 5) % 5 = (-2 + 5) % 5 = 3
       assert.equal(module.curPage, 3);
     });

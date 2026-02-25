@@ -2,7 +2,7 @@
 
 **MMM-page-indicator** is a [MagicMirror²][mm] module that indicates which page is currently visible. It serves as an indicator and provides an easy way to switch pages by clicking on the circle representing the page you want to navigate to.
 
-This module works well with [MMM-pages], but it is compatible with any module that sends the `PAGE_CHANGED` notification.
+This module works well with [MMM-pages], but it is compatible with any module that sends the `PAGE_SELECT` notification.
 
 ## Screenshot
 
@@ -255,12 +255,12 @@ Turn the dots into elongated bars with a sweeping highlight similar to carousel 
 
 ## Sending notifications to the module
 
-This module responds to the notification `PAGE_CHANGED`. The payload should be an `integer`. Note that this has strict error checking, so `"3"` will not work, while `3` will. Also do note that to switch to page 1, you need to send `0` to the module. **This uses a zero-based numbering system.**
+This module responds to the notification `PAGE_SELECT`. The payload should be an `integer`. Note that this has strict error checking, so `"3"` will not work, while `3` will. Also do note that to switch to page 1, you need to send `0` to the module. **This uses a zero-based numbering system.**
 
 Let's say that you want to change the indicator to page 3. In your code, you would write:
 
 ```js
-this.sendNotification("PAGE_CHANGED", 2);
+this.sendNotification("PAGE_SELECT", 2);
 ```
 
 This would cause the module to change show that you are on page 3.
