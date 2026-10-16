@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.3.9](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.8...v0.3.9) (2026-10-16)
+
+### Added
+
+* enable keyboard navigation ([2d2a265](https://github.com/edward-shen/MMM-page-indicator/commit/2d2a265084497a0ccbc57c08bbcd0e96881faef5))
+
+### Chores
+
+* add allowScripts config ([9ff30b7](https://github.com/edward-shen/MMM-page-indicator/commit/9ff30b7fa1142f5b05f55722336cf50748073c63))
+* simplify prepare script ([b35e5a5](https://github.com/edward-shen/MMM-page-indicator/commit/b35e5a5804b7a57d5f40fb80f894baaa9b3b82e2))
+* update devDependencies ([82e7944](https://github.com/edward-shen/MMM-page-indicator/commit/82e7944008b85f17be8efc24085d07ceb6b4f130))
+* update GitHub Actions ([803d319](https://github.com/edward-shen/MMM-page-indicator/commit/803d31920295e2cb83a8c87e70aa2f44e0a33a29))
+* use ESM changelog config ([b4f9af3](https://github.com/edward-shen/MMM-page-indicator/commit/b4f9af394938409b5d72e2d9010e31a0ba7283d5))
+
 ## [0.3.8](https://github.com/edward-shen/MMM-page-indicator/compare/v0.3.7...v0.3.8) (2026-02-25)
 
 
