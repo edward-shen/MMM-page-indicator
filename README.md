@@ -38,6 +38,7 @@ git pull
 
 To use this module, add it to the modules array in the `config/config.js` file:
 
+<!-- prettier-ignore -->
 ```js
     {
         module: 'MMM-page-indicator',
@@ -59,6 +60,10 @@ All configuration options are optional.
 | `inactiveDimmed`        | Should the inactive circles be dimmed?<br/>**Value type:** `boolean`<br/>**Default value:** `true`    |
 | `inactiveHollow`        | Should the inactive circles be hollow?<br/>**Value type:** `boolean`<br/>**Default value:** `true`    |
 | `showPageNumberOnHover` | Should the page number be shown on hover?<br/>**Value type:** `boolean`<br/>**Default value:** `true` |
+
+### Keyboard navigation
+
+Use `Tab` to focus a page indicator, then press `Enter` or `Space` to select it. Assistive technologies can identify each indicator by its page number and announce which page is current.
 
 ## Styling
 

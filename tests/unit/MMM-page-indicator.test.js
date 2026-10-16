@@ -108,6 +108,24 @@ describe('MMM-page-indicator', () => {
       assert.ok(activeIndicator);
     });
 
+    it('should keep the existing element and classes while exposing button semantics', () => {
+      const wrapper = module.getDom();
+      const indicator = wrapper.querySelector('.page-1');
+
+      assert.equal(indicator.tagName, 'I');
+      assert.equal(indicator.getAttribute('role'), 'button');
+      assert.equal(indicator.getAttribute('tabindex'), '0');
+      assert.equal(indicator.getAttribute('aria-label'), 'Page 2');
+      assert.ok(indicator.classList.contains('indicator'));
+    });
+
+    it('should mark the current page for assistive technology', () => {
+      const wrapper = module.getDom();
+      const activeIndicator = wrapper.querySelector('.active-page');
+
+      assert.equal(activeIndicator.getAttribute('aria-current'), 'page');
+    });
+
     it('should apply activeBright class when configured', () => {
       module.config.activeBright = true;
       module.curPage = 0;
@@ -469,6 +487,29 @@ describe('MMM-page-indicator', () => {
       module.notificationReceived('MAX_PAGES_CHANGED', 3);
       assert.equal(module.curPage, 2);
       assert.equal(module.config.pages, 3);
+    });
+  });
+
+  describe('keyboard handler', () => {
+    it('should send PAGE_SELECT when Enter is pressed', () => {
+      const wrapper = module.getDom();
+      const indicator = wrapper.querySelector('.page-1');
+      const event = new window.KeyboardEvent('keydown', { key: 'Enter', bubbles: true });
+
+      indicator.dispatchEvent(event);
+
+      assert.deepEqual(module.sendNotification.mock.calls[0].arguments, ['PAGE_SELECT', 1]);
+    });
+
+    it('should send PAGE_SELECT and prevent scrolling when Space is pressed', () => {
+      const wrapper = module.getDom();
+      const indicator = wrapper.querySelector('.page-1');
+      const event = new window.KeyboardEvent('keydown', { key: ' ', bubbles: true, cancelable: true });
+
+      indicator.dispatchEvent(event);
+
+      assert.deepEqual(module.sendNotification.mock.calls[0].arguments, ['PAGE_SELECT', 1]);
+      assert.equal(event.defaultPrevented, true);
     });
   });
 });

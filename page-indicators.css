@@ -18,6 +18,12 @@
     width: 100%;
   }
 
+  .indicator:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+    border-radius: 50%;
+  }
+
   .tooltip {
     visibility: hidden;
     background-color: #000;

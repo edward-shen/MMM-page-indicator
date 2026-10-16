@@ -40,9 +40,13 @@ Module.register('MMM-page-indicator', {
 
       const circle = document.createElement('i');
       circle.classList.add('fa', 'indicator', `page-${i}`);
+      circle.setAttribute('role', 'button');
+      circle.setAttribute('tabindex', '0');
+      circle.setAttribute('aria-label', `Page ${i + 1}`);
 
       if (this.curPage === i) {
         circle.classList.add('fa-circle', 'active-page');
+        circle.setAttribute('aria-current', 'page');
         if (this.config.activeBright) circle.classList.add('bright');
       }
       else {
@@ -64,6 +68,12 @@ Module.register('MMM-page-indicator', {
       // sendNotification triggers notificationReceived which calls updateDom.
       circle.onclick = () => {
         this.sendNotification('PAGE_SELECT', i);
+      };
+      circle.onkeydown = (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          this.sendNotification('PAGE_SELECT', i);
+        }
       };
 
       circleWrapper.appendChild(circle);
