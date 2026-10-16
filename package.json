@@ -52,5 +52,9 @@
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10",
     "simple-git-hooks": "^2.14.0"
+  },
+  "allowScripts": {
+    "simple-git-hooks@2.14.0": true,
+    "unrs-resolver@1.12.2": true
   }
 }
